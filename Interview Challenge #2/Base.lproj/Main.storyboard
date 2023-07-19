@@ -175,10 +175,6 @@
                                     <segue destination="8la-TJ-ugZ" kind="show" id="bjp-Cr-Hsn"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jp-PE-jLr">
-                                <rect key="frame" x="55" y="603" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -191,9 +187,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Generation Settings" id="X0G-sJ-U77"/>
-                    <connections>
-                        <outlet property="testImageView" destination="7jp-PE-jLr" id="6T7-c5-rya"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainCell" id="gXl-hG-pUL" userLabel="Image and Name Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainCell" id="gXl-hG-pUL" userLabel="Main Cell" customClass="MainCell" customModule="Interview_Challenge__2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="72.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gXl-hG-pUL" id="FMg-aQ-61S">
@@ -241,6 +234,10 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="daS-fy-1i4" secondAttribute="bottom" id="qoV-dH-LAj"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profilePictureImageView" destination="7dx-mg-d25" id="c3L-Bl-eWG"/>
+                                    <outlet property="userNameLabel" destination="dHl-uK-ZPn" id="MJz-h7-LyA"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenderCell" textLabel="3B9-5Q-ADW" style="IBUITableViewCellStyleDefault" id="YSI-9C-sTi" userLabel="Gender Cell">
                                 <rect key="frame" x="0.0" y="122.33333587646484" width="393" height="43.666667938232422"/>
@@ -310,7 +307,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-62-RQ5" userLabel="Login Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-62-RQ5" userLabel="Login Cell" customClass="LoginCell" customModule="Interview_Challenge__2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="297.00000762939453" width="393" height="113.66666412353516"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YNG-62-RQ5" id="XlY-mW-pAx">
@@ -338,7 +335,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCU-yW-QTc">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCU-yW-QTc">
                                                             <rect key="frame" x="45" y="0.0" width="258" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -393,8 +390,13 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="3ii-OZ-sD0" secondAttribute="trailing" id="mTU-vd-I7h"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="passwordLabel" destination="c6E-Gl-vMW" id="ju0-V3-Gtg"/>
+                                    <outlet property="usernameLabel" destination="r4U-OV-JzB" id="qze-RQ-BAJ"/>
+                                    <outlet property="uuidLabel" destination="DCU-yW-QTc" id="uv6-jw-73A"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneCell" id="Nj2-BM-Z6b" userLabel="Phone Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneCell" id="Nj2-BM-Z6b" userLabel="Phone Cell" customClass="PhoneCell" customModule="Interview_Challenge__2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="410.66667175292969" width="393" height="93.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nj2-BM-Z6b" id="JAU-xt-AaT">
@@ -460,6 +462,10 @@
                                         <constraint firstItem="qpW-5s-aH6" firstAttribute="leading" secondItem="JAU-xt-AaT" secondAttribute="leadingMargin" constant="50" id="kou-k3-r9J"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellNumberLabel" destination="fYx-wr-02W" id="3xM-1d-fdS"/>
+                                    <outlet property="homeNumberLabel" destination="QGn-vv-WYc" id="YbM-Yo-Oyc"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
