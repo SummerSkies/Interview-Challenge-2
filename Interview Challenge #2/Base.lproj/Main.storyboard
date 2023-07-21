@@ -37,6 +37,9 @@
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="O36-7S-NDJ">
                                                 <rect key="frame" x="259" y="0.0" width="94" height="32"/>
+                                                <connections>
+                                                    <action selector="stepperValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="gjg-pz-WcD"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
                                     </stackView>
@@ -117,18 +120,21 @@
                                                 <rect key="frame" x="0.0" y="207.66666666666669" width="353" height="34.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5D-Sr-ZFh">
-                                                        <rect key="frame" x="0.0" y="0.0" width="257" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="283.33333333333331" height="34.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fBJ-4K-MCN">
-                                                        <rect key="frame" x="266" y="0.0" width="87" height="34.333333333333336"/>
+                                                        <rect key="frame" x="292.33333333333331" y="0.0" width="60.666666666666686" height="34.333333333333336"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <menu key="menu" id="lSf-uv-p4I">
                                                             <children>
-                                                                <command title="Item 1" id="0jx-in-UIR"/>
-                                                                <command title="Item 2" id="jxV-eB-zgT"/>
+                                                                <command title="All" id="0jx-in-UIR"/>
+                                                                <command title="UUID" id="FPM-JI-GIQ"/>
+                                                                <command title="Username" id="jxV-eB-zgT"/>
+                                                                <command title="Password" id="OtK-eT-YBf"/>
+                                                                <command title="None" id="mn3-YV-dp5"/>
                                                             </children>
                                                         </menu>
                                                         <buttonConfiguration key="configuration" style="filled"/>
@@ -139,17 +145,19 @@
                                                 <rect key="frame" x="0.0" y="252.00000000000003" width="353" height="34.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Phone Numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5v-XB-9gN">
-                                                        <rect key="frame" x="0.0" y="0.0" width="256" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="282.33333333333331" height="34.333333333333336"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" changesSelectionAsPrimaryAction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kcb-Z0-JKM">
-                                                        <rect key="frame" x="266" y="0.0" width="87" height="34.333333333333336"/>
+                                                        <rect key="frame" x="292.33333333333331" y="0.0" width="60.666666666666686" height="34.333333333333336"/>
                                                         <menu key="menu" id="ySy-eH-GPH">
                                                             <children>
-                                                                <command title="Item 1" id="M6s-aU-nmk"/>
-                                                                <command title="Item 2" id="som-Bz-nvl"/>
+                                                                <command title="All" id="3iy-EO-eDZ"/>
+                                                                <command title="Home" id="M6s-aU-nmk"/>
+                                                                <command title="Cell" id="som-Bz-nvl"/>
+                                                                <command title="None" id="fMW-sy-PNS"/>
                                                             </children>
                                                         </menu>
                                                         <state key="normal" title="Button"/>
@@ -187,6 +195,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Generation Settings" id="X0G-sJ-U77"/>
+                    <connections>
+                        <outlet property="ageCheckbox" destination="CNr-Ku-8bt" id="gbq-o5-mzL"/>
+                        <outlet property="birthdayCheckbox" destination="Yez-jF-9l3" id="aR6-aF-8zO"/>
+                        <outlet property="emailCheckbox" destination="Zj8-AG-7De" id="SzY-hl-bgJ"/>
+                        <outlet property="genderCheckbox" destination="Zak-H2-2C0" id="iJ4-I6-n6u"/>
+                        <outlet property="userNumberLabel" destination="m7w-mG-t2u" id="E4A-qZ-G1q"/>
+                        <outlet property="userNumberStepper" destination="O36-7S-NDJ" id="qoI-oI-AoO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -307,7 +323,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-62-RQ5" userLabel="Login Cell" customClass="LoginCell" customModule="Interview_Challenge__2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-62-RQ5" userLabel="Login Cell" customClass="LoginCell" customModule="Interview_Challenge__2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="297.00000762939453" width="393" height="113.66666412353516"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YNG-62-RQ5" id="XlY-mW-pAx">
