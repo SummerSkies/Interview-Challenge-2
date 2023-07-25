@@ -169,7 +169,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dt-e5-780">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dt-e5-780">
                                 <rect key="frame" x="122.66666666666669" y="481.33333333333331" width="148" height="59.999999999999943"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FEi-XV-Jzf"/>
@@ -180,7 +180,7 @@
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="8la-TJ-ugZ" kind="show" id="bjp-Cr-Hsn"/>
+                                    <segue destination="8la-TJ-ugZ" kind="show" identifier="" destinationCreationSelector="generateUsers:sender:" id="bjp-Cr-Hsn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -200,6 +200,7 @@
                         <outlet property="birthdayCheckbox" destination="Yez-jF-9l3" id="aR6-aF-8zO"/>
                         <outlet property="emailCheckbox" destination="Zj8-AG-7De" id="SzY-hl-bgJ"/>
                         <outlet property="genderCheckbox" destination="Zak-H2-2C0" id="iJ4-I6-n6u"/>
+                        <outlet property="generateButton" destination="8dt-e5-780" id="2uD-da-Wwi"/>
                         <outlet property="userNumberLabel" destination="m7w-mG-t2u" id="E4A-qZ-G1q"/>
                         <outlet property="userNumberStepper" destination="O36-7S-NDJ" id="qoI-oI-AoO"/>
                     </connections>
@@ -217,7 +218,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MainCell" id="gXl-hG-pUL" userLabel="Main Cell" customClass="MainCell" customModule="Interview_Challenge__2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MainCell" id="gXl-hG-pUL" userLabel="Main Cell" customClass="MainCell" customModule="Interview_Challenge__2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="393" height="72.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gXl-hG-pUL" id="FMg-aQ-61S">
@@ -255,7 +256,7 @@
                                     <outlet property="userNameLabel" destination="dHl-uK-ZPn" id="MJz-h7-LyA"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenderCell" textLabel="3B9-5Q-ADW" style="IBUITableViewCellStyleDefault" id="YSI-9C-sTi" userLabel="Gender Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="GenderCell" textLabel="3B9-5Q-ADW" style="IBUITableViewCellStyleDefault" id="YSI-9C-sTi" userLabel="Gender Cell">
                                 <rect key="frame" x="0.0" y="122.33333587646484" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YSI-9C-sTi" id="cXp-hh-G2Y">
@@ -272,7 +273,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmailCell" textLabel="6b7-Q1-Cih" style="IBUITableViewCellStyleDefault" id="Orx-5q-3Yw" userLabel="Email Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EmailCell" textLabel="6b7-Q1-Cih" style="IBUITableViewCellStyleDefault" id="Orx-5q-3Yw" userLabel="Email Cell">
                                 <rect key="frame" x="0.0" y="166.00000381469727" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Orx-5q-3Yw" id="IjC-94-7Et">
@@ -289,7 +290,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AgeCell" textLabel="Aj2-MI-4ff" style="IBUITableViewCellStyleDefault" id="cIg-s2-ddk" userLabel="Age Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AgeCell" textLabel="Aj2-MI-4ff" style="IBUITableViewCellStyleDefault" id="cIg-s2-ddk" userLabel="Age Cell">
                                 <rect key="frame" x="0.0" y="209.66667175292969" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cIg-s2-ddk" id="OBX-0i-Jwt">
@@ -306,7 +307,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BirthdayCell" textLabel="LSr-E2-v8S" style="IBUITableViewCellStyleDefault" id="erv-UU-puh" userLabel="Birthday Cell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BirthdayCell" textLabel="LSr-E2-v8S" style="IBUITableViewCellStyleDefault" id="erv-UU-puh" userLabel="Birthday Cell">
                                 <rect key="frame" x="0.0" y="253.33333969116211" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="erv-UU-puh" id="Ptd-cg-P5q">
@@ -323,7 +324,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoginCell" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-62-RQ5" userLabel="Login Cell" customClass="LoginCell" customModule="Interview_Challenge__2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoginCell" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-62-RQ5" userLabel="Login Cell" customClass="LoginCell" customModule="Interview_Challenge__2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="297.00000762939453" width="393" height="113.66666412353516"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YNG-62-RQ5" id="XlY-mW-pAx">
@@ -347,11 +348,14 @@
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UUID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Nw-8p-zFq">
                                                             <rect key="frame" x="0.0" y="0.0" width="45" height="20.333333333333332"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="45" id="bzv-3q-hFu"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCU-yW-QTc">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DCU-yW-QTc">
                                                             <rect key="frame" x="45" y="0.0" width="258" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -412,7 +416,7 @@
                                     <outlet property="uuidLabel" destination="DCU-yW-QTc" id="uv6-jw-73A"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhoneCell" id="Nj2-BM-Z6b" userLabel="Phone Cell" customClass="PhoneCell" customModule="Interview_Challenge__2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PhoneCell" id="Nj2-BM-Z6b" userLabel="Phone Cell" customClass="PhoneCell" customModule="Interview_Challenge__2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="410.66667175292969" width="393" height="93.333335876464844"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nj2-BM-Z6b" id="JAU-xt-AaT">

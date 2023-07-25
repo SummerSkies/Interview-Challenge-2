@@ -24,7 +24,7 @@ class MainCell: UITableViewCell {
     
     func update(with user: FormattedUser) {
         userNameLabel.text = user.fullName
-        getImage(pictureURL: user.pictureURL)
+        //getImage(pictureURL: user.pictureURL)
     }
     
     func getImage(pictureURL: String) {

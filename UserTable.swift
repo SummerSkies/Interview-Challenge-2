@@ -10,33 +10,45 @@ import UIKit
 class UserTable: UITableViewController {
 
     var generationController = GenerationController()
-    var printReadyUser: FormattedUser?
+    var users: [FormattedUser] {
+        return [FormattedUser(fullName: "Test Person", pictureURL: "https://randomuser.me/api/portraits/thumb/women/62.jpg", age: 20, birthday: "1945-02-16T10:35:49.300Z", uuid: UUID(uuidString: "e70c5132-84e8-4317-829d-f10da3b180ef"), username: "Tester_Gal", password: "NeverEnoughBaby", gender: "Female", email: "email@email.com", homeNumber: "(123) 456-7890", cellNumber: "(098) 765-4321"), FormattedUser(fullName: "Test Person2", pictureURL: "https://randomuser.me/api/portraits/thumb/women/62.jpg", age: 20, birthday: "1945-02-16T10:35:49.300Z", uuid: UUID(uuidString: "e70c5132-84e8-4317-829d-f10da3b180ef"), username: "Tester_Gal2", password: "SetItAllFreeBaby", gender: "Female", email: "email2@email.com", homeNumber: "(123) 456-7890", cellNumber: "(098) 765-4321")]
+    }
     var usersLoaded = false
+    var numberOfUsers = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Task {
-            do {
-                let testResponse = try await generationController.generateUser()
-                let testUser = testResponse.extractUser()
-                printReadyUser = testUser
-                usersLoaded = true
-                tableView.reloadData()
-            } catch {
-                print(error)
-            }
-        }
+        //generateUsers()
     }
+    
+//    func generateUsers() {
+//        Task {
+//            do {
+//                let generatorResponse = try await generationController.generateUsers(count: numberOfUsers)
+//                for index in (0...generatorResponse.results.count - 1) {
+//                    users.append(generatorResponse.extractUser(at: index))
+//                }
+//                usersLoaded = true
+//                tableView.reloadData()
+//            } catch {
+//                print(error)
+//            }
+//        }
+//    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         if usersLoaded == false {
-            return 0
+            return 2 //0
         } else {
-            return 1
+            return numberOfUsers
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return users[section].fullName
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -44,50 +56,49 @@ class UserTable: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let printReadyUser {
-            switch indexPath.row {
-            case 0:
-                let cell = configureCell(identifier: "MainCell", indexPath: indexPath) as! MainCell
-                cell.update(with: printReadyUser)
-                return cell
-            case 1:
-                let cell = configureCell(identifier: "GenderCell", indexPath: indexPath)
-                var content = cell.defaultContentConfiguration()
-                content.text = printReadyUser.gender?.capitalized
-                cell.contentConfiguration = content
-                return cell
-            case 2:
-                let cell = configureCell(identifier: "EmailCell", indexPath: indexPath)
-                var content = cell.defaultContentConfiguration()
-                content.text = "Contact: \(printReadyUser.email ?? "No email provided.")"
-                cell.contentConfiguration = content
-                return cell
-            case 3:
-                let cell = configureCell(identifier: "AgeCell", indexPath: indexPath)
-                var content = cell.defaultContentConfiguration()
-                content.text = "\(printReadyUser.age?.description ?? "No age provided.") years old"
-                cell.contentConfiguration = content
-                return cell
-            case 4:
-                let cell = configureCell(identifier: "BirthdayCell", indexPath: indexPath)
-                var content = cell.defaultContentConfiguration()
-                content.text = "Born \(printReadyUser.birthday ?? "No birthday provided.")"
-                cell.contentConfiguration = content
-                return cell
-            case 5:
-                let cell = configureCell(identifier: "LoginCell", indexPath: indexPath) as! LoginCell
-                cell.update(with: printReadyUser)
-                return cell
-            case 6:
-                let cell = configureCell(identifier: "PhoneCell", indexPath: indexPath) as! PhoneCell
-                cell.update(with: printReadyUser)
-                return cell
-            default:
-                print("This should be impossible.")
-                return tableView.dequeueReusableCell(withIdentifier: "Not Valid", for: indexPath)
-            }
+        let user = users[indexPath.section]
+        
+        switch indexPath.row {
+        case 0:
+            let cell = configureCell(identifier: "MainCell", indexPath: indexPath) as! MainCell
+            cell.update(with: user)
+            return cell
+        case 1:
+            let cell = configureCell(identifier: "GenderCell", indexPath: indexPath)
+            var content = cell.defaultContentConfiguration()
+            content.text = user.gender?.capitalized
+            cell.contentConfiguration = content
+            return cell
+        case 2:
+            let cell = configureCell(identifier: "EmailCell", indexPath: indexPath)
+            var content = cell.defaultContentConfiguration()
+            content.text = "Contact: \(user.email ?? "No email provided.")"
+            cell.contentConfiguration = content
+            return cell
+        case 3:
+            let cell = configureCell(identifier: "AgeCell", indexPath: indexPath)
+            var content = cell.defaultContentConfiguration()
+            content.text = "\(user.age?.description ?? "No age provided.") years old"
+            cell.contentConfiguration = content
+            return cell
+        case 4:
+            let cell = configureCell(identifier: "BirthdayCell", indexPath: indexPath)
+            var content = cell.defaultContentConfiguration()
+            content.text = "Born \(user.birthday ?? "No birthday provided.")"
+            cell.contentConfiguration = content
+            return cell
+        case 5:
+            let cell = configureCell(identifier: "LoginCell", indexPath: indexPath) as! LoginCell
+            cell.update(with: user)
+            return cell
+        case 6:
+            let cell = configureCell(identifier: "PhoneCell", indexPath: indexPath) as! PhoneCell
+            cell.update(with: user)
+            return cell
+        default:
+            print("This should be impossible.")
+            return UITableViewCell()
         }
-        return UITableViewCell()
     }
     
     func configureCell(identifier: String, indexPath: IndexPath) -> UITableViewCell {
