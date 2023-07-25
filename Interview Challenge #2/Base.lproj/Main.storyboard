@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="D4s-5t-HH8">
-                                <rect key="frame" x="20" y="102.99999999999997" width="353" height="348.33333333333326"/>
+                                <rect key="frame" x="20" y="103" width="353" height="327"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="b8P-Uh-ywU" userLabel="Number of Users Stack">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="32"/>
@@ -44,7 +45,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3ca-ac-Z9Z" userLabel="User Info Stack">
-                                        <rect key="frame" x="0.0" y="62" width="353" height="286.33333333333331"/>
+                                        <rect key="frame" x="0.0" y="62" width="353" height="265"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="User Info:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOW-4X-Rok">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="20.333333333333332"/>
@@ -53,71 +54,103 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sds-wO-0Kj" userLabel="Gender Stack">
-                                                <rect key="frame" x="0.0" y="30.333333333333346" width="353" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="30.333333333333343" width="353" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Gender" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDI-4a-4rP">
-                                                        <rect key="frame" x="0.0" y="0.0" width="300.66666666666669" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="324.66666666666669" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zak-H2-2C0">
-                                                        <rect key="frame" x="300.66666666666669" y="0.0" width="52.333333333333314" height="34.333333333333336"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="checkmark.diamond.fill" catalog="system"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zak-H2-2C0">
+                                                        <rect key="frame" x="324.66666666666669" y="0.0" width="28.333333333333314" height="29"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="checkmark.diamond" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <state key="selected">
+                                                            <imageReference key="image" image="checkmark.diamond.fill" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="checkboxButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aQf-OJ-5ij"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="AtY-qa-n4r" userLabel="Email Stack">
-                                                <rect key="frame" x="0.0" y="74.666666666666657" width="353" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="69.333333333333343" width="353" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jk7-YV-mZo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="291.66666666666669" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="315.66666666666669" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zj8-AG-7De">
-                                                        <rect key="frame" x="300.66666666666669" y="0.0" width="52.333333333333314" height="34.333333333333336"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="checkmark.diamond.fill" catalog="system"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zj8-AG-7De">
+                                                        <rect key="frame" x="324.66666666666669" y="0.0" width="28.333333333333314" height="29"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="checkmark.diamond" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <state key="selected">
+                                                            <imageReference key="image" image="checkmark.diamond.fill" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="checkboxButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oP3-hT-Oax"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="fcS-Wf-mPk" userLabel="Age Stack">
-                                                <rect key="frame" x="0.0" y="118.99999999999999" width="353" height="34.333333333333329"/>
+                                                <rect key="frame" x="0.0" y="108.33333333333331" width="353" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOb-ed-Dbj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="291.66666666666669" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="315.66666666666669" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNr-Ku-8bt">
-                                                        <rect key="frame" x="300.66666666666669" y="0.0" width="52.333333333333314" height="34.333333333333336"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="checkmark.diamond.fill" catalog="system"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNr-Ku-8bt">
+                                                        <rect key="frame" x="324.66666666666669" y="0.0" width="28.333333333333314" height="29"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="checkmark.diamond" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <state key="selected">
+                                                            <imageReference key="image" image="checkmark.diamond.fill" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="checkboxButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mZ1-UI-YEJ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="he5-cZ-4Tz" userLabel="Birthday Stack">
-                                                <rect key="frame" x="0.0" y="163.33333333333331" width="353" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="147.33333333333331" width="353" height="29"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uA1-m2-7dZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="290.66666666666669" height="34.333333333333336"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="314.66666666666669" height="29"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yez-jF-9l3">
-                                                        <rect key="frame" x="300.66666666666669" y="0.0" width="52.333333333333314" height="34.333333333333336"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="checkmark.diamond.fill" catalog="system"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yez-jF-9l3">
+                                                        <rect key="frame" x="324.66666666666669" y="0.0" width="28.333333333333314" height="29"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="checkmark.diamond" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <state key="selected">
+                                                            <imageReference key="image" image="checkmark.diamond.fill" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="checkboxButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l1i-5P-ZYU"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="F1z-fF-gIg" userLabel="Login Stack">
-                                                <rect key="frame" x="0.0" y="207.66666666666669" width="353" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="186.33333333333331" width="353" height="34.333333333333343"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5D-Sr-ZFh">
                                                         <rect key="frame" x="0.0" y="0.0" width="283.33333333333331" height="34.333333333333336"/>
@@ -142,7 +175,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="w8i-ba-uqp" userLabel="Phone Stack">
-                                                <rect key="frame" x="0.0" y="252.00000000000003" width="353" height="34.333333333333343"/>
+                                                <rect key="frame" x="0.0" y="230.66666666666669" width="353" height="34.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Phone Numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P5v-XB-9gN">
                                                         <rect key="frame" x="0.0" y="0.0" width="282.33333333333331" height="34.333333333333336"/>
@@ -170,7 +203,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dt-e5-780">
-                                <rect key="frame" x="122.66666666666669" y="481.33333333333331" width="148" height="59.999999999999943"/>
+                                <rect key="frame" x="122.66666666666669" y="460" width="148" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="FEi-XV-Jzf"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="148" id="WBQ-5T-IsY"/>
@@ -324,7 +357,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoginCell" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-62-RQ5" userLabel="Login Cell" customClass="LoginCell" customModule="Interview_Challenge__2" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoginCell" translatesAutoresizingMaskIntoConstraints="NO" id="YNG-62-RQ5" userLabel="Login Cell" customClass="LoginCell" customModule="Interview_Challenge__2" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="297.00000762939453" width="393" height="113.66666412353516"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YNG-62-RQ5" id="XlY-mW-pAx">
@@ -519,6 +552,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.diamond" catalog="system" width="128" height="124"/>
         <image name="checkmark.diamond.fill" catalog="system" width="128" height="124"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">

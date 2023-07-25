@@ -50,10 +50,18 @@ class GenerationSettingsView: UIViewController {
         return
     }
     
+    @IBAction func checkboxButtonTapped(_ sender: UIButton) {
+        sender.isSelected.toggle()
+    }
+    
     @IBSegueAction func generateUsers(_ coder: NSCoder, sender: Any?) -> UserTable? {
         let destinationView = UserTable(coder: coder)
         
         //destinationView?.numberOfUsers = numberOfUsers
+        destinationView?.showGender = genderCheckbox.isSelected
+        destinationView?.showEmail = emailCheckbox.isSelected
+        destinationView?.showAge = ageCheckbox.isSelected
+        destinationView?.showBirthday = birthdayCheckbox.isSelected
 
         return destinationView
     }
