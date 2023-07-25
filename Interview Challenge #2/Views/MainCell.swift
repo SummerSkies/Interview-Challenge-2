@@ -13,18 +13,15 @@ class MainCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func update(with user: FormattedUser) {
         userNameLabel.text = user.fullName
-        //getImage(pictureURL: user.pictureURL)
+        getImage(pictureURL: user.pictureURL)
     }
     
     func getImage(pictureURL: String) {
@@ -36,7 +33,6 @@ class MainCell: UITableViewCell {
                     self.profilePictureImageView.image = UIImage(data: data)
                 }
             }
-            
             task.resume()
         }
     }

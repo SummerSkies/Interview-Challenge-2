@@ -15,6 +15,8 @@ class GenerationSettingsView: UIViewController {
     @IBOutlet weak var ageCheckbox: UIButton!
     @IBOutlet weak var birthdayCheckbox: UIButton!
     @IBOutlet weak var generateButton: UIButton!
+    @IBOutlet weak var loginMenu: UIMenu!
+    @IBOutlet weak var phoneMenu: UIMenu!
     
     var numberOfUsers = 0
     
@@ -57,7 +59,7 @@ class GenerationSettingsView: UIViewController {
     @IBSegueAction func generateUsers(_ coder: NSCoder, sender: Any?) -> UserTable? {
         let destinationView = UserTable(coder: coder)
         
-        //destinationView?.numberOfUsers = numberOfUsers
+        destinationView?.numberOfUsers = numberOfUsers
         destinationView?.showGender = genderCheckbox.isSelected
         destinationView?.showEmail = emailCheckbox.isSelected
         destinationView?.showAge = ageCheckbox.isSelected

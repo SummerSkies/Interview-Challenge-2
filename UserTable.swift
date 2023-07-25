@@ -10,9 +10,7 @@ import UIKit
 class UserTable: UITableViewController {
 
     var generationController = GenerationController()
-    var users: [FormattedUser] {
-        return [FormattedUser(fullName: "Test Person", pictureURL: "https://randomuser.me/api/portraits/thumb/women/62.jpg", age: 20, birthday: "1945-02-16T10:35:49.300Z", uuid: UUID(uuidString: "e70c5132-84e8-4317-829d-f10da3b180ef"), username: "Tester_Gal", password: "NeverEnoughBaby", gender: "Female", email: "email@email.com", homeNumber: "(123) 456-7890", cellNumber: "(098) 765-4321"), FormattedUser(fullName: "Test Person2", pictureURL: "https://randomuser.me/api/portraits/thumb/women/62.jpg", age: 20, birthday: "1945-02-16T10:35:49.300Z", uuid: UUID(uuidString: "e70c5132-84e8-4317-829d-f10da3b180ef"), username: "Tester_Gal2", password: "SetItAllFreeBaby", gender: "Female", email: "email2@email.com", homeNumber: "(123) 456-7890", cellNumber: "(098) 765-4321")]
-    }
+    var users: [FormattedUser] = []
     var usersLoaded = false
     
     var numberOfUsers = 0
@@ -21,7 +19,7 @@ class UserTable: UITableViewController {
     var showAge = true
     var showBirthday = true
     
-    var numberOfAttributes = 3
+    var numberOfAttributes = 1
     var usedCells = [String]()
 
     override func viewDidLoad() {
@@ -40,29 +38,27 @@ class UserTable: UITableViewController {
             numberOfAttributes += 1
         }
         
-        //generateUsers()
+        generateUsers()
     }
     
-//    func generateUsers() {
-//        Task {
-//            do {
-//                let generatorResponse = try await generationController.generateUsers(count: numberOfUsers)
-//                for index in (0...generatorResponse.results.count - 1) {
-//                    users.append(generatorResponse.extractUser(at: index))
-//                }
-//                usersLoaded = true
-//                tableView.reloadData()
-//            } catch {
-//                print(error)
-//            }
-//        }
-//    }
-
-    // MARK: - Table view data source
+    func generateUsers() {
+        Task {
+            do {
+                let generatorResponse = try await generationController.generateUsers(count: numberOfUsers)
+                for index in (0...generatorResponse.results.count - 1) {
+                    users.append(generatorResponse.extractUser(at: index))
+                }
+                usersLoaded = true
+                tableView.reloadData()
+            } catch {
+                print(error)
+            }
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         if usersLoaded == false {
-            return 2 //0
+            return 0
         } else {
             return numberOfUsers
         }
@@ -83,14 +79,6 @@ class UserTable: UITableViewController {
             usedCells = []
             
             let cell = configureCell(identifier: "MainCell", indexPath: indexPath) as! MainCell
-            cell.update(with: user)
-            return cell
-        } else if indexPath.row == numberOfAttributes - 2 { //Second last, always LoginCell
-            let cell = configureCell(identifier: "LoginCell", indexPath: indexPath) as! LoginCell
-            cell.update(with: user)
-            return cell
-        } else if indexPath.row == numberOfAttributes - 1 { //Last, always PhoneCell
-            let cell = configureCell(identifier: "PhoneCell", indexPath: indexPath) as! PhoneCell
             cell.update(with: user)
             return cell
         } else {
@@ -128,7 +116,7 @@ class UserTable: UITableViewController {
                 return cell
             }
         }
-        print("\n\nHow did it come to this?\n\n")
+        print("\n\nExtra Cell Generated.\n\n")
         return UITableViewCell()
     }
     
